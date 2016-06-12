@@ -2,5 +2,5 @@
 <h3><%= @post.title %></h3>
 <p> <%= @post.body %> </p>
 <small><%= @post.created_at.strftime("%d %b %Y")%></small><br>
-<%= link_to "Editar Post", edit_post_path %> |
-<%= link_to "Deletar Post", @post, data:{confirm: "Tem certeza que quer excluir?"}, method: :delete %>
+<p> Categoria: <%= link_to @post.category.name, @post.category%> </p>
+<p> <%= link_to "Voltar", posts_path %> </p>
