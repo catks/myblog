@@ -5,12 +5,101 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
 </head>
 <body>
+
+
 <% flash.each do |key,value| %>
   <p> <%= value %></p>
 <% end %>
-<%= yield %>
+
+
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="#">My Ruby Blog</a></h1>
+				<p>Learning Ruby on Rails</p>
+			</div>
+      <div id='menu'>
+        <ul class="main-nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Sobre", about_path %></li>
+          <li><%= link_to "Blog", posts_path %></li>
+          <li><%= link_to "Contato", contact_path%></li>
+          <li><%= link_to "Recursos", resources_path%></li>
+        </ul>
+      </div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<%= yield %>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+							<div id="search" >
+								<form method="get" action="#">
+									<div>
+										<input type="text" name="s" id="search-text" value="" />
+										<input type="submit" id="search-submit" value="GO" />
+									</div>
+								</form>
+							</div>
+							<div style="clear: both;">&nbsp;</div>
+						</li>
+						<li>
+							<h2>Get The Framework</h2>
+							<p>You can download Ruby and/or Ruby on Rails for free right now
+                                                            <br />
+                                                            <a style="color:#D93544;" href="http://rubyonrails.org/download" target="blank">GET IT NOW</a>
+                                                        </p>
+						</li>
+						<li>
+							<h2>Categories</h2>
+							<ul>
+								<li><a href="#">Ruby Programming Language</a></li>
+                                                                <li><a href="#">Ruby on Rails Framework</a></li>
+								<li><a href="#">MVC Stuff</a></li>
+								<li><a href="#">Learn Linux</a></li>
+								<li><a href="#">Other Languages</a></li>
+
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+								<li><a href="#">Blog Post</a></li>
+								<li><a href="#">Blog Post</a></li>
+								<li><a href="#">Blog Post</a></li>
+								<li><a href="#">Blog Post</a></li>
+								<li><a href="#">Blog Post</a></li>
+								<li><a href="#">Blog Post</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>&copy; 2013, My Ruby Blog - Sample Project</p>
+	</div>
+</div>
+<!-- end #footer -->
 
 </body>
 </html>
