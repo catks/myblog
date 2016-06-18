@@ -1,14 +1,17 @@
+<div class="post">
 <p id="notice"><%= notice %></p>
 
 <p>
   <h1><%= @category.name %></h1>
 </p>
+</div>
 
 <% @posts.each do |post| %>
+<div class="post">
   <h3><%= link_to post.title, post %></h3>
   <p> <%= post.body %> </p>
+  </div>
 <% end %>
 <% if @posts.empty? %>
   <p> Não há posts nessa categoria </p>
 <% end %>
-<%= link_to 'Back', categories_path %>

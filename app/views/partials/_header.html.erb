@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Suco de Uva</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+
+<% flash.each do |key,value| %>
+  <p> <%= value %></p>
+<% end %>
+
+
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="#">Suco de Uva</a></h1>
+				<p>Learning Ruby on Rails</p>
+			</div>
+      <div id='menu'>
+        <ul class="main-nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Sobre", about_path %></li>
+          <li><%= link_to "Blog", posts_path %></li>
+          <li><%= link_to "Contato", contact_path%></li>
+          <li><%= link_to "Recursos", resources_path%></li>
+        </ul>
+      </div>
+		</div>
+	</div>
+	<!-- end #header -->

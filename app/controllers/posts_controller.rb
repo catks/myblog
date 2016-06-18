@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @q = Post.search(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = AdminUser.all
+    @new_comment = Comment.new(post: @post)
+    @comments = @post.comments
   end
 
   def new

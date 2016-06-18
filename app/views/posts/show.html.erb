@@ -1,6 +1,33 @@
-<h1> Posts suco de uva </h1>
+<div class="post">
 <h3><%= @post.title %></h3>
 <p> <%= @post.body %> </p>
-<small><%= @post.created_at.strftime("%d %b %Y")%></small><br>
+<small><%= @post.created_at.strftime("%d %b %Y")%></small>
+<p>
+  Criado por <%= @post.admin_user.name %>
+</p>
 <p> Categoria: <%= link_to @post.category.name, @post.category%> </p>
 <p> <%= link_to "Voltar", posts_path %> </p>
+<h3> Comente Aqui</h3>
+<%= form_for(@new_comment) do |f| %>
+
+  <%= f.hidden_field :post_id %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Comentário" %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= render partial: 'partials/comment', collection: @comments %>
+</div>
